@@ -1,6 +1,7 @@
 import './styles.css';
-import { getWeather, setClientInfo } from './logic/location-logic';
+import { setClientWeatherInfo, clientWeather } from './logic/weather-logic';
 
-console.log(await getWeather('koln'));
-
-await setClientInfo('cologne');
+console.log(clientWeather);
+await setClientWeatherInfo('cologne').then(() => {
+  console.log(clientWeather);
+});
