@@ -18,3 +18,31 @@ p, h1, h2, h3, h4, h5, h6 {
 input, button, textarea, select {
     font: inherit;
 }
+
+:root {
+  --default-padding: 1rem;
+}
+
+body > * {
+  border: navy 1px solid;
+}
+body {
+  height: 100dvh;
+
+  display: grid;
+  grid-template: min-content 1fr / 1fr 2fr;
+}
+
+.container {
+  padding: var(--default-padding);
+}
+
+.locationInputContainer {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--default-padding);
+}
+
