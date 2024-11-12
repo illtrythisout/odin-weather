@@ -6,9 +6,11 @@
     <title>Weather</title>
 </head>
 <body>
-    <header class="locationInputContainer container">
-        <label for="locationInput">Change Location</label>
-        <input type="text" name="locationInput" id="locationInput">
+    <header class="searchContainer container">
+        <div class="locationInputContainer">
+            <input type="text" name="locationInput" id="locationInput" placeholder="Change Location">
+            <button type="button" id="searchLocationBtn"><img src="./images/search.svg"></button>
+        </div>
         <button type="button" id="myLocationBtn">My Location</button>
     </header>
     <div class="currentWeatherContainer container">

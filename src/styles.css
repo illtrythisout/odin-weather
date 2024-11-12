@@ -7,6 +7,7 @@
   text-decoration: none;
   font-family: Poppins;
   list-style-type: none;
+  color: var(--white-color);
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -18,26 +19,52 @@ p, h1, h2, h3, h4, h5, h6 {
 input, button, textarea, select {
     font: inherit;
 }
+button:hover {
+  cursor: pointer;
+}
 
 :root {
   --default-padding: 1rem;
+  --primary-color: #075985;
+  --primary-dark-color: #082f49;
+  --secondary-color: #c96534;
+  --secondary-variant-color: #c14f10;
+  --white-color: #f5f5f5;
 }
 
-body > * {
-  border: navy 1px solid;
+@font-face {
+  font-family: poppins;
+  src: url(./fonts/Poppins-Regular.ttf);
 }
+@font-face {
+  font-family: poppins;
+  src: url(./fonts/Poppins-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: poppins;
+  src: url(./fonts/Poppins-Bold.ttf);
+  font-weight: 700;
+}
+
+/* body > * {
+  border: navy 1px solid;
+} */
 body {
   height: 100dvh;
 
   display: grid;
-  grid-template: min-content 1fr / 1fr 2fr;
+  grid-template: min-content 1fr / min-content 1fr;
+
+  background-color: var(--primary-color);
+  font-family: poppins;
 }
 
 .container {
   padding: var(--default-padding);
 }
 
-.locationInputContainer {
+.searchContainer {
   grid-column: 1 / -1;
 
   display: flex;
@@ -45,4 +72,54 @@ body {
   align-items: center;
   gap: var(--default-padding);
 }
+.locationInputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  padding: 0.5rem;
+  padding-left: 1rem;
+
+  background-color: var(--primary-dark-color);
+  border-radius: 50vw;
+}
+.locationInputContainer > input {
+  background-color: transparent;
+  border: none;
+  caret-color: var(--white-color);
+}
+.locationInputContainer > input:focus {
+  outline: none;
+}
+.locationInputContainer > button, #myLocationBtn {
+  padding: 0.25rem;
+
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 50vw;
+  
+  transition: background-color 0.3s;
+}
+.locationInputContainer > button:hover, #myLocationBtn:hover {
+  background-color: var(--secondary-variant-color);
+}
+#myLocationBtn {
+  padding: 0.5rem 1rem;
+  height: 100%;
+}
+
+.currentWeatherContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--default-padding);
+
+  padding: var(--default-padding) calc(6 * var(--default-padding));
+}
+.currentWeatherContainer > img {
+  --size: 12rem;
+  height: var(--size);
+  width: var(--size);
+
+  background-color: pink;
+}
