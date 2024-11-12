@@ -116,10 +116,21 @@ body {
 
   padding: var(--default-padding) calc(6 * var(--default-padding));
 }
+.currentWeatherContainer > .current {
+  text-align: center;
+  font-size: 1.3rem;
+}
 .currentWeatherContainer > img {
-  --size: 12rem;
+  --size: 10rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: var(--size);
   width: var(--size);
-
-  background-color: pink;
+  max-width: none;
+}
+.currentWeatherContainer > .temp {
+  font-size: 2rem;
 }
