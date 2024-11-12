@@ -1,14 +1,10 @@
 export { setClientWeatherInfo, clientWeather };
 import { formatDate } from './date-formatter';
 
-// TEMPORARY
-import { weatherData } from './weather-data';
-// TEMPORARY
-
 let clientWeather = {};
 
 async function setClientWeatherInfo(location) {
-  const data = weatherData; // SWITCH WEATHERDATA FOR getWeather(location)
+  const data = await getWeather(location);
 
   // set basic object for clientWeather
   clientWeather = {
@@ -39,13 +35,13 @@ async function setClientWeatherInfo(location) {
   })();
 }
 
-// async function getWeather(location) {
-//   const link =
-//     'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/' +
-//     location +
-//     '?key=PXYVXC7BCTT2L6QWWQRGU4AG5';
-//   const response = await fetch(link);
-//   const data = await response.json();
+async function getWeather(location) {
+  const link =
+    'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/' +
+    location +
+    '?unitGroup=metric&key=PXYVXC7BCTT2L6QWWQRGU4AG5';
+  const response = await fetch(link);
+  const data = await response.json();
 
-//   return data;
-// }
+  return data;
+}
