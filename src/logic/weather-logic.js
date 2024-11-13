@@ -1,6 +1,7 @@
-export { setClientWeatherInfo, clientWeather };
+export { runWeather, setClientWeatherInfo, clientWeather };
 import { formatDate } from './date-formatter';
 import { getLocation, currentLocation } from './location-logic';
+import { setCurrentWeather, setForecastWeather } from '../dom-logic/set-dom';
 
 let clientWeather = {};
 
@@ -51,4 +52,16 @@ async function getWeather(location) {
   const data = await response.json();
 
   return data;
+}
+
+async function runWeather(location) {
+  try {
+    await getLocation();
+    await setClientWeatherInfo(location);
+    console.log('Weather Data:', clientWeather);
+    setCurrentWeather();
+    setForecastWeather();
+  } catch (error) {
+    console.error('Error getting location or weather:', error);
+  }
 }

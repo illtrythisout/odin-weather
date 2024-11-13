@@ -51,6 +51,6 @@ function setForecastWeather() {
 
     editElementText(row, '.date', obj.date);
     editElementAttribute(row, '.icon', 'src', iconMap[obj.icon]);
-    editElementText(row, '.temp', obj.temp);
+    editElementText(row, '.temp', obj.temp + '°C');
   });
 }
