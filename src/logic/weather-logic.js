@@ -1,10 +1,17 @@
 export { setClientWeatherInfo, clientWeather };
 import { formatDate } from './date-formatter';
+import { getLocation, currentLocation } from './location-logic';
 
 let clientWeather = {};
 
-async function setClientWeatherInfo(location) {
-  const data = await getWeather(location);
+async function setClientWeatherInfo(location = currentLocation) {
+  let data;
+  if (typeof location === 'string') {
+    data = await getWeather(location);
+  } else {
+    location = location.latitude + ',' + location.longitude;
+    data = await getWeather(location);
+  }
 
   // set basic object for clientWeather
   clientWeather = {
