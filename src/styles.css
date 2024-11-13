@@ -156,3 +156,8 @@ body {
 .forecastWeatherContainer table tbody tr:last-of-type {
   border-bottom: 2px solid var(--secondary-color);
 }
+.forecastWeatherContainer table tbody tr img {
+  --size: 1.5rem;
+  height: var(--size);
+  width: var(--size);
+}
